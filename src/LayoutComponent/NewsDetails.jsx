@@ -1,10 +1,11 @@
-import { FaShareAlt, FaRegEye } from "react-icons/fa";
+import React from "react";
 import { AiFillStar } from "react-icons/ai";
+import { FaShareAlt } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const NewsCart = (props = {}) => {
-  const { news } = props || {};
 
+function NewsDetails({news}) {
   return (
     <div className=" p-4 bg-white rounded-lg shadow-md">
       {/* Author Information */}
@@ -32,11 +33,9 @@ const NewsCart = (props = {}) => {
         alt="Thumbnail"
         className="w-full  object-cover rounded-lg mb-4"
       />
-
       {/* Details */}
       <p className="text-gray-700 text-sm mb-4">
-        {news.details.slice(0, 150)}...{" "}
-        <Link to={`/signleNews/${news._id}`} className="text-primary">Read More</Link>
+        {news.details}{" "}
       </p>
 
       {/* Ratings and Views */}
@@ -53,14 +52,12 @@ const NewsCart = (props = {}) => {
           ))}
           <span className="ml-2 font-semibold">{news.rating.number}</span>
         </div>
-
-        {/* Views */}
-        <div className="flex items-center">
-          <FaRegEye className="mr-1" />
-          <span>{news.total_view}</span>
-        </div>
+      </div>
+      <div>
+        <Link to={`/category/${news.category_id}`}  className="btn text-white bg-blue-500 font-semibold text-lg my-3"><FaArrowLeft></FaArrowLeft> All News In this Category</Link>
       </div>
     </div>
   );
-};
-export default NewsCart;
+}
+
+export default NewsDetails

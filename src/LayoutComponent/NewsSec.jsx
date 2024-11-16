@@ -10,7 +10,7 @@ function NewsSection() {
       <p className="text-gray-400 text-sm">
         {news.length} News Found On This Category
       </p>
-      <div>
+      <div className="space-y-10">
         {news.map((singleNews) => (
           <NewsCart key={singleNews._id} news={singleNews}></NewsCart>
         ))}

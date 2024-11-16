@@ -1,11 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import LeftAside from './LeftAside';
 import RightAside from './RightAside';
-import { useEffect } from 'react';
 function Home() {
-    useEffect(()=>{
-        fetch(``)
-    },[])
     return (
         <div className="grid grid-cols-12 gap-5 my-20">
             <div className="col-span-3">
