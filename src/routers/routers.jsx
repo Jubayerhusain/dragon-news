@@ -4,8 +4,7 @@ import Home from "../LayoutComponent/Home";
 import NewsSection from "../LayoutComponent/NewsSec";
 import SignleNews from "../LayoutComponent/SingleNews";
 import Login from "../LoginAndRegisterForm/Login";
-import Register from './../LoginAndRegisterForm/Register';
-
+import Register from "../LoginAndRegisterForm/register";
 const router = createBrowserRouter([
   {
     path: "*",

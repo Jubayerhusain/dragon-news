@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navber from "../Components/Navber";
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 function Login() {
   const {loginUser} = useContext(AuthContext)
+  const navigate = useNavigate()
   const hundleLogin = (event) =>{
     event.preventDefault();
     const email = event.target.email.value;
@@ -13,6 +14,7 @@ function Login() {
     .then(res =>{
       const user = res.user;
       console.log(user);
+      navigate('/')
     })
     .catch(error=>{
       const errorMessage = error.message;

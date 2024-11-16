@@ -36,7 +36,9 @@ const NewsCart = (props = {}) => {
       {/* Details */}
       <p className="text-gray-700 text-sm mb-4">
         {news.details.slice(0, 150)}...{" "}
-        <Link to={`/signleNews/${news._id}`} className="text-primary">Read More</Link>
+        <Link to={`/signleNews/${news._id}`} className="text-primary">
+          Read More
+        </Link>
       </p>
 
       {/* Ratings and Views */}
