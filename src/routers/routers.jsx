@@ -5,6 +5,7 @@ import NewsSection from "../LayoutComponent/NewsSec";
 import SignleNews from "../LayoutComponent/SingleNews";
 import Login from "../LoginAndRegisterForm/Login";
 import Register from "../LoginAndRegisterForm/register";
+import PrivateRoute from "../privateRoute/PrivateRoute";
 const router = createBrowserRouter([
   {
     path: "*",
@@ -36,17 +37,22 @@ const router = createBrowserRouter([
   },
   {
     path: "/signleNews/:id",
-    element: <SignleNews></SignleNews>,
+    element: (
+      <PrivateRoute>
+        {" "}
+        <SignleNews></SignleNews>
+      </PrivateRoute>
+    ),
     loader: ({ params }) =>
       fetch(`https://openapi.programming-hero.com/api/news/${params.id}`),
   },
   {
-    path:'login',
+    path: "login",
     element: <Login></Login>,
   },
   {
-    path:'register',
-    element: <Register></Register>
-  }
+    path: "register",
+    element: <Register></Register>,
+  },
 ]);
 export default router;
