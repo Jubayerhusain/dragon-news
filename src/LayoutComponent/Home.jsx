@@ -16,7 +16,7 @@ function Home() {
                 <h1 className='text-2xl font-bold text-gray-700'>Dragon News Home</h1>
                 <Outlet />
             </div>
-            <div className="col-span-3 border-2">
+            <div className="col-span-3">
                 <h1 className='text-2xl font-bold text-gray-700'>Login With</h1>
                 <RightAside></RightAside>
             </div>
