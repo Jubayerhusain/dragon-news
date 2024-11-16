@@ -1,4 +1,5 @@
 
+import { Outlet } from 'react-router-dom';
 import Header from './../Components/Header';
 import Navber from './../Components/Navber';
 function HomeLayout() {
@@ -7,6 +8,7 @@ function HomeLayout() {
             <header>
                 <Header></Header>
                 <Navber></Navber>
+                <Outlet />
             </header>
         </div>
     )

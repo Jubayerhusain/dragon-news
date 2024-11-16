@@ -7,7 +7,7 @@ function Header() {
   return (
     <div>
       <img className="my-3 mx-auto" src={newsLogo} alt="" />
-      <p className="text-center text-lg text-gray-600">
+      <p className="text-center text-lg font-bold text-gray-500">
         Journalism Without Fear or Favour
       </p>
       <div className="text-center text-lg font-semibold text-gray-700">
