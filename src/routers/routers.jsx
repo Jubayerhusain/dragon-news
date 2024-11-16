@@ -3,6 +3,8 @@ import HomeLayout from "../Layouts/HomeLayout";
 import Home from "../LayoutComponent/Home";
 import NewsSection from "../LayoutComponent/NewsSec";
 import SignleNews from "../LayoutComponent/SingleNews";
+import Login from "../LoginAndRegisterForm/Login";
+import Register from './../LoginAndRegisterForm/Register';
 
 const router = createBrowserRouter([
   {
@@ -39,5 +41,13 @@ const router = createBrowserRouter([
     loader: ({ params }) =>
       fetch(`https://openapi.programming-hero.com/api/news/${params.id}`),
   },
+  {
+    path:'login',
+    element: <Login></Login>,
+  },
+  {
+    path:'register',
+    element: <Register></Register>
+  }
 ]);
 export default router;

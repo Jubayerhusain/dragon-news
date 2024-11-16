@@ -39,7 +39,7 @@ function Navber() {
       </div>
       <div className="flex space-x-2 items-center">
         <img src={profilepic} alt="" />
-        <Link className="btn text-white bg-slate-700 text-xl font-bold">
+        <Link to={'/login'} className="btn text-white bg-slate-700 text-xl font-bold">
           Login
         </Link>
       </div>
