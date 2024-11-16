@@ -19,7 +19,7 @@ function Header() {
           latest
         </button>
         <Marquee
-          className="text-xl font-semibold text-gray-800 space-x-14"
+          className="text-2xl font-semibold space-x-14 text-green-600"
           pauseOnHover={true} 
           speed={100}
         >
