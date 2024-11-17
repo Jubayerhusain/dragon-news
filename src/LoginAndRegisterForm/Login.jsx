@@ -1,10 +1,12 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navber from "../Components/Navber";
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 function Login() {
   const {loginUser} = useContext(AuthContext)
-  const navigate = useNavigate()
+  const location = useLocation();
+  console.log(location);
+  const navigate = useNavigate();
   const hundleLogin = (event) =>{
     event.preventDefault();
     const email = event.target.email.value;
@@ -14,7 +16,7 @@ function Login() {
     .then(res =>{
       const user = res.user;
       console.log(user);
-      navigate('/')
+      navigate(location?.state?location.state:"/")
     })
     .catch(error=>{
       const errorMessage = error.message;
