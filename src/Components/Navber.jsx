@@ -60,7 +60,7 @@ function Navber() {
           onClick={hundleSignOut}
           className="btn text-white bg-slate-700 text-xl font-bold"
         >
-          LogOut
+          Logout
         </Link>
         ) : (
           <Link

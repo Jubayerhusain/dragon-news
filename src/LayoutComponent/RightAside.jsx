@@ -1,6 +1,7 @@
 import React from "react";
 import { FaFacebook, FaGithub, FaInstagram, FaTwitter } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { Link } from 'react-router-dom';
 
 function RightAside() {
   return (
@@ -21,7 +22,7 @@ function RightAside() {
       <h2 className="font-semibold text-xl mb-3">Find Us On</h2>
       <div className="join flex join-vertical *:bg-base-100">
         <button className="btn join-item justify-start text-lg font-semibold text-gray-600">
-          <FaFacebook></FaFacebook> Facebook
+          <FaFacebook></FaFacebook> <Link to={`https://www.facebook.com/jubayer.husain.627354`}>Facebook</Link>
         </button>
         <button className="btn join-item justify-start text-lg font-semibold text-gray-600">
           <FaInstagram></FaInstagram> Instagram
