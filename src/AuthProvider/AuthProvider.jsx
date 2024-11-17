@@ -13,7 +13,6 @@ export const AuthContext = createContext();
 function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-
   // Function to create new users
   const createUser = async (email, password) => {
     setLoading(true);

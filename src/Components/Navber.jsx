@@ -12,7 +12,7 @@ function Navber() {
   return (
     <div className="flex justify-between items-center">
       <div className="text-2xl font-bold text-gray-900">
-        {user && user.email}
+        {user && user.displayName}
       </div>
       <div className="space-x-5">
         <NavLink
@@ -49,7 +49,7 @@ function Navber() {
       </div>
       <div className="flex space-x-2 items-center">
         {user && user?.email ? (
-          <img src={user.photoURL} alt="" />
+          <img className="w-[50px] h-[50px] rounded-full" src={user.photoURL} alt="" />
         ) : (
           <img src={profilepic} alt="" />
         )}

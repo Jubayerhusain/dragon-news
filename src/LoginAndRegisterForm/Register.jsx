@@ -17,15 +17,20 @@ function Register() {
     createUser(email, password)
     .then((res)=>{
       const user = res.user;
+      updateUserProfile({displayName:name, photoURL:photo})
+      .then((res)=>{
+        // console.log(res);
+      })
+      .catch((error)=>{
+        // console.log(error);
+      })
+
       navigate(location?.state?location.state:"/")
+
     })
     .catch((error) => {
       const errorMessage = error.message;
     });
-
-    updateUserProfile({displayName:name, photoURL:photo})
-    .then(()=>{})
-    .catch(()=>{})
   }
   return (
     <div className="w-11/12 mx-auto">
