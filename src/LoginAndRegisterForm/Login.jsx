@@ -1,26 +1,24 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navber from "../Components/Navber";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 function Login() {
   const {loginUser} = useContext(AuthContext)
+  const [error, setError] = useState();
   const location = useLocation();
-  console.log(location);
   const navigate = useNavigate();
   const hundleLogin = (event) =>{
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
-    console.log(email, password);
     loginUser(email, password)
     .then(res =>{
       const user = res.user;
-      console.log(user);
       navigate(location?.state?location.state:"/")
     })
     .catch(error=>{
       const errorMessage = error.message;
-      console.log(errorMessage);
+      setError('Invalid Email and password')
     })
   }
   return (
@@ -65,6 +63,13 @@ function Login() {
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Login</button>
               </div>
+              {
+                error&&<label className="label">
+                <a href="#" className=" text-red-500  font-semibold">
+                  {error}
+                </a>
+              </label>
+              }
             </form>
             <p className="text-center mb-5">
               If you have no account please{" "}

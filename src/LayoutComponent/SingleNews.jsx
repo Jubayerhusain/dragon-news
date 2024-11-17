@@ -8,7 +8,6 @@ import Navber from './../Components/Navber';
 function SignleNews() {
     const data =  useLoaderData()
     const news = data.data[0]
-    console.log(news);
   return (
     <div className="w-11/12 mx-auto">
         {/* header section*/}

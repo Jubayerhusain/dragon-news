@@ -3,6 +3,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../firebase/firebase.init";
@@ -47,10 +48,8 @@ function AuthProvider({ children }) {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
-        console.log("Current user found:", currentUser);
         setUser(currentUser);
       } else {
-        console.log("No current user found.");
         setUser(null);
       }
       setLoading(false); // Ensure loading is reset
@@ -58,11 +57,15 @@ function AuthProvider({ children }) {
 
     return () => unsubscribe(); // Cleanup subscription on unmount
   }, []);
-
+  // user profile update
+  const updateUserProfile = (updateData) => {
+    return updateProfile(auth.currentUser, updateData)
+  }
   const authInfo = {
     createUser,
     loginUser,
     userSignOut,
+    updateUserProfile,
     loading,
     user,
   };

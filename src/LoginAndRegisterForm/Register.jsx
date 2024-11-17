@@ -4,9 +4,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 function Register() {
-  const {createUser} = useContext(AuthContext)
+  const {createUser,updateUserProfile} = useContext(AuthContext)
   const location = useLocation()
-  console.log(location);
   const navigate = useNavigate()
   const handleRegister = (event) => {
     event.preventDefault();
@@ -14,18 +13,19 @@ function Register() {
     const photo = event.target.photo_Url.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
-    console.log(name, photo, email, password);
 
     createUser(email, password)
     .then((res)=>{
       const user = res.user;
-      console.log(user);
       navigate(location?.state?location.state:"/")
     })
     .catch((error) => {
       const errorMessage = error.message;
-      console.log(errorMessage);
     });
+
+    updateUserProfile({displayName:name, photoURL:photo})
+    .then(()=>{})
+    .catch(()=>{})
   }
   return (
     <div className="w-11/12 mx-auto">

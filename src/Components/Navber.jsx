@@ -3,22 +3,16 @@ import profilepic from "./../assets/user.png";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 function Navber() {
-  const { userSignOut,user } = useContext(AuthContext);
+  const { userSignOut, user } = useContext(AuthContext);
   const hundleSignOut = () => {
     userSignOut()
-      .then((res) => {
-        console.log("User Logout succesfully done");
-      })
-      .catch((error) => {
-        console.log("ERROR", error.message);
-      });
+      .then((res) => {})
+      .catch((error) => {});
   };
   return (
     <div className="flex justify-between items-center">
       <div className="text-2xl font-bold text-gray-900">
-        {
-          user && user.email
-        }
+        {user && user.email}
       </div>
       <div className="space-x-5">
         <NavLink
@@ -54,14 +48,18 @@ function Navber() {
         </NavLink>
       </div>
       <div className="flex space-x-2 items-center">
-        <img src={profilepic} alt="" />
+        {user && user?.email ? (
+          <img src={user.photoURL} alt="" />
+        ) : (
+          <img src={profilepic} alt="" />
+        )}
         {user ? (
           <Link
-          onClick={hundleSignOut}
-          className="btn text-white bg-slate-700 text-xl font-bold"
-        >
-          Logout
-        </Link>
+            onClick={hundleSignOut}
+            className="btn text-white bg-slate-700 text-xl font-bold"
+          >
+            Logout
+          </Link>
         ) : (
           <Link
             to={"/login"}
